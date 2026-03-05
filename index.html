@@ -194,6 +194,10 @@
     }
 
     .paper-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 10px;
       font-size: 13px;
       margin-bottom: 4px;
       line-height: 1.6;
@@ -202,12 +206,12 @@
     .paper-actions > a {
       color: #444;
       text-decoration: underline;
-      margin-right: 10px;
     }
     .paper-actions > a:hover { color: #111; }
 
     .abstract-text {
       display: none;
+      flex-basis: 100%;
       margin-top: 8px;
       font-size: 13px;
       color: #444;
@@ -278,7 +282,7 @@
 
   <!-- SIDEBAR -->
   <header>
-<img src="photo.jpg" alt="Vatsal Khandelwal" style="width:140px;height:140px;object-fit:cover;border-radius:3px;">
+    <img src="photo.jpg" alt="Vatsal Khandelwal">
     <h1>Vatsal Khandelwal</h1>
     <p class="position">Assistant Professor (Lecturer) in Economics<br>University of Exeter<br>Academic Visitor, University of Oxford</p>
     <hr class="sidebar-rule">
