@@ -6,261 +6,47 @@
   <title>Vatsal Khandelwal</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #222;
-      background: #fff;
-      display: flex;
-      min-height: 100vh;
-    }
-
-    a { color: #222; }
-    a:hover { color: #555; }
-
-    /* SIDEBAR */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 210px;
-      height: 100vh;
-      padding: 36px 24px 36px 28px;
-      border-right: 1px solid #e8e8e8;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header h1 {
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-
-    header .position {
-      font-size: 12px;
-      color: #555;
-      line-height: 1.45;
-      margin-bottom: 16px;
-    }
-
-    header img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 3px;
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    header .photo-placeholder {
-      width: 140px;
-      height: 140px;
-      background: #eee;
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: #999;
-      text-align: center;
-      line-height: 1.4;
-      margin-bottom: 20px;
-    }
-
-    hr.sidebar-rule {
-      border: none;
-      border-top: 1px solid #e0e0e0;
-      margin-bottom: 16px;
-    }
-
-    nav a {
-      display: block;
-      font-size: 13px;
-      color: #444;
-      text-decoration: none;
-      padding: 3px 0;
-      transition: color 0.15s;
-    }
-
-    nav a:hover { color: #111; }
-    nav a.active { color: #111; font-weight: 500; }
-
-    /* MAIN CONTENT */
-    main {
-      margin-left: 210px;
-      padding: 48px 52px 80px 48px;
-      max-width: 820px;
-      flex: 1;
-    }
-
-    /* BIO */
-    #bio {
-      display: flex;
-      gap: 32px;
-      align-items: flex-start;
-      margin-bottom: 52px;
-    }
-
-    #bio .bio-text p {
-      font-size: 14px;
-      color: #333;
-      line-height: 1.7;
-      margin-bottom: 10px;
-    }
-
-    #bio .bio-text a {
-      text-decoration: underline;
-    }
-
-    .bio-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-size: 13px;
-      margin-top: 4px;
-    }
-
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.6; color: #222; background: #fff; display: flex; min-height: 100vh; }
+    a { color: #222; } a:hover { color: #555; }
+    header { position: fixed; top: 0; left: 0; width: 210px; height: 100vh; padding: 36px 24px 36px 28px; border-right: 1px solid #e8e8e8; overflow-y: auto; display: flex; flex-direction: column; }
+    header h1 { font-size: 17px; font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
+    header .position { font-size: 12px; color: #555; line-height: 1.45; margin-bottom: 16px; }
+    header img { width: 140px; height: 140px; object-fit: cover; border-radius: 3px; display: block; margin-bottom: 20px; }
+    hr.sidebar-rule { border: none; border-top: 1px solid #e0e0e0; margin-bottom: 16px; }
+    nav a { display: block; font-size: 13px; color: #444; text-decoration: none; padding: 3px 0; transition: color 0.15s; }
+    nav a:hover { color: #111; } nav a.active { color: #111; font-weight: 500; }
+    main { margin-left: 210px; padding: 48px 52px 80px 48px; max-width: 820px; flex: 1; }
+    #bio { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 52px; }
+    #bio .bio-text p { font-size: 14px; color: #333; line-height: 1.7; margin-bottom: 10px; }
+    #bio .bio-text a { text-decoration: underline; }
+    .bio-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; margin-top: 4px; }
     .bio-links a { text-decoration: underline; }
-
-    /* SECTION HEADINGS */
-    h2.section-heading {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      padding-top: 4px;
-    }
-
-    .section-rule {
-      border: none;
-      border-top: 1px solid #ddd;
-      margin-bottom: 22px;
-    }
-
-    .section-block {
-      margin-bottom: 48px;
-    }
-
-    /* PAPERS */
-    ul.paper-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul.paper-list li {
-      margin-bottom: 22px;
-    }
-
-    .paper-title {
-      font-size: 14.5px;
-      font-weight: 600;
-      margin-bottom: 3px;
-      line-height: 1.4;
-    }
-
-    .paper-meta {
-      font-size: 13px;
-      color: #555;
-      margin-bottom: 5px;
-      line-height: 1.5;
-    }
-
-    .paper-meta .venue {
-      font-style: italic;
-      color: #333;
-    }
-
-  .paper-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 10px;
-  font-size: 13px;
-  margin-bottom: 4px;
-}
-.paper-actions a {
-  color: #444;
-  text-decoration: underline;
-}
-.paper-actions a:hover { color: #111; }
-
-    details.abstract-details summary {
-      font-size: 13px;
-      color: #444;
-      cursor: pointer;
-      list-style: none;
-      text-decoration: underline;
-      display: inline;
-    }
-
-  details.abstract-details {
-  display: block;
-}
+    h2.section-heading { font-size: 15px; font-weight: 600; margin-bottom: 6px; padding-top: 4px; }
+    .section-rule { border: none; border-top: 1px solid #ddd; margin-bottom: 22px; }
+    .section-block { margin-bottom: 48px; }
+    ul.paper-list { list-style: none; padding: 0; }
+    ul.paper-list li { margin-bottom: 22px; }
+    .paper-title { font-size: 14.5px; font-weight: 600; margin-bottom: 3px; line-height: 1.4; }
+    .paper-meta { font-size: 13px; color: #555; margin-bottom: 5px; line-height: 1.5; }
+    .paper-meta .venue { font-style: italic; color: #333; }
+    .paper-actions { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; font-size: 13px; margin-bottom: 4px; }
+    .paper-actions a { color: #444; text-decoration: underline; }
+    .paper-actions a:hover { color: #111; }
+    details.abstract-details { display: block; }
+    details.abstract-details summary { font-size: 13px; color: #444; cursor: pointer; list-style: none; text-decoration: underline; display: inline; }
     details.abstract-details summary::-webkit-details-marker { display: none; }
     details.abstract-details summary::marker { display: none; }
-
-    details.abstract-details .abstract-text {
-      margin-top: 8px;
-      font-size: 13px;
-      color: #444;
-      line-height: 1.65;
-      border-left: 2px solid #ddd;
-      padding-left: 12px;
-      max-width: 620px;
-    }
-
-    .coverage {
-      font-size: 12.5px;
-      color: #777;
-    }
-
+    details.abstract-details .abstract-text { margin-top: 8px; font-size: 13px; color: #444; line-height: 1.65; border-left: 2px solid #ddd; padding-left: 12px; max-width: 620px; }
+    .coverage { font-size: 12.5px; color: #777; }
     .coverage a { color: #777; text-decoration: none; border-bottom: 1px solid #ddd; }
     .coverage a:hover { color: #333; }
-
-    /* TEACHING */
     .subsection { margin-bottom: 18px; }
-
-    .subsection-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: #444;
-      margin-bottom: 6px;
-    }
-
-    .subsection p {
-      font-size: 14px;
-      color: #333;
-      margin-bottom: 6px;
-      line-height: 1.65;
-    }
-
-    /* MUSIC */
-    .section-block p {
-      font-size: 14px;
-      color: #333;
-      margin-bottom: 8px;
-      line-height: 1.65;
-    }
-
-    /* MOBILE */
+    .subsection-label { font-size: 13px; font-weight: 600; color: #444; margin-bottom: 6px; }
+    .subsection p { font-size: 14px; color: #333; margin-bottom: 6px; line-height: 1.65; }
+    .section-block p { font-size: 14px; color: #333; margin-bottom: 8px; line-height: 1.65; }
     @media (max-width: 680px) {
       body { flex-direction: column; }
-      header {
-        position: static;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid #e8e8e8;
-        padding: 24px 20px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 16px;
-        align-items: flex-start;
-      }
+      header { position: static; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #e8e8e8; padding: 24px 20px; flex-direction: row; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
       header nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
       header nav a { display: inline; }
       main { margin-left: 0; padding: 28px 20px 60px; }
@@ -269,11 +55,10 @@
 </head>
 <body>
 
-  <!-- SIDEBAR -->
   <header>
-<img src="photo.jpg" alt="Vatsal Khandelwal" style="width:140px;height:140px;object-fit:cover;border-radius:3px;">
+    <img src="photo.jpg" alt="Vatsal Khandelwal" style="width:140px;height:140px;object-fit:cover;border-radius:3px;">
     <h1>Vatsal Khandelwal</h1>
-    <p class="position">Assistant Professor (Lecturer) in Economics<br>University of Exeter<br>Academic Visitor, Oxford</p>
+    <p class="position">Assistant Professor in Economics<br>University of Exeter<br>Academic Visitor, University of Oxford</p>
     <hr class="sidebar-rule">
     <nav id="sidebar-nav">
       <a href="#bio">Bio</a>
@@ -285,15 +70,13 @@
     </nav>
   </header>
 
-  <!-- MAIN -->
   <main>
 
-    <!-- BIO -->
     <div id="bio" class="section-block">
       <div class="bio-text">
-        <p>I am an Assistant Professor (Lecturer) in Economics at the University of Exeter and an academic visitor at the Department of Economics, University of Oxford.</p>
+        <p>I am an Assistant Professor (Lecturer) in Economics at the <a href="https://www.exeter.ac.uk/business/economics/" target="_blank">University of Exeter</a> and an academic visitor at the Department of Economics, <a href="https://www.economics.ox.ac.uk/" target="_blank">University of Oxford</a>.</p>
         <p>I study social and economic networks and their applications to topics in development and behavioural economics. I completed my PhD in Economics at the University of Oxford, after which I was a junior research fellow at Merton College, Oxford.</p>
-        <p>I also organise the <a href="https://bts-seminar.net" target="_blank">Behind-the-Scenes Seminar Series</a> with S&eacute;verine Toussaert.</p>
+        <p>I also organise the <a href="https://bts-seminar.net" target="_blank">Behind-the-Scenes Seminar Series</a> with Séverine Toussaert.</p>
         <div class="bio-links">
           <a href="https://vatsalecon.github.io/Documents/CV_Vatsal.pdf" target="_blank">CV (January 2026)</a>
           <a href="mailto:v.khandelwal@exeter.ac.uk">v.khandelwal@exeter.ac.uk</a>
@@ -303,33 +86,32 @@
       </div>
     </div>
 
-    <!-- WORKING PAPERS -->
     <div id="working-papers" class="section-block">
       <h2 class="section-heading">Working Papers</h2>
       <hr class="section-rule">
       <ul class="paper-list">
 
         <li>
-          <p class="paper-title">&ldquo;Silent Networks: The Role of Inaccurate Beliefs in Reducing Useful Social Interactions&rdquo;</p>
+          <p class="paper-title">Silent Networks: The Role of Inaccurate Beliefs in Reducing Useful Social Interactions</p>
           <p class="paper-meta">with Ronak Jain &mdash; <em>2023 Econ Job Market Best Paper Award, UniCredit Foundation &amp; EEA</em></p>
           <div class="paper-actions">
             <a href="https://vatsalecon.github.io/Papers/silent_networks.pdf" target="_blank">Draft</a>
             <details class="abstract-details">
               <summary>Abstract</summary>
-              <div class="abstract-text">Can pessimistic beliefs about social norms create &ldquo;silent&rdquo; networks, where individuals rarely seek support despite benefits? A field experiment with informal workers shows that belief correction increases demand for social support by reducing perceived reputational costs. We use a network model to explain how misperceptions can arise and trap communities in a low-interaction equilibrium. Structural estimation predicts that the induced shift is too small to escape this equilibrium. Accordingly, two years later, those exposed to the treatment hold more optimistic beliefs, but below the true level conveyed. Counterfactuals show that stronger policies are required for persistence, though belief correction can increase the demand and funding to support them.</div>
+              <div class="abstract-text">Can pessimistic beliefs about social norms create “silent” networks, where individuals rarely seek support despite benefits? A field experiment with informal workers shows that belief correction increases demand for social support by reducing perceived reputational costs. We use a network model to explain how misperceptions can arise and trap communities in a low-interaction equilibrium. Structural estimation predicts that the induced shift is too small to escape this equilibrium. Accordingly, two years later, those exposed to the treatment hold more optimistic beliefs, but below the true level conveyed. Counterfactuals show that stronger policies are required for persistence, though belief correction can increase the demand and funding to support them.</div>
             </details>
           </div>
           <p class="coverage">Coverage: <a href="https://voxdev.org/topic/common-misperceptions-what-people-get-wrong-about-world-and-why-it-matters" target="_blank">VoxDev (2025)</a>, <a href="https://voxdev.org/topic/social-protection/breaking-silence-how-can-social-networks-become-better-safety-nets" target="_blank">VoxDev (2024)</a>, <a href="https://www.mercatus.org/ideasofindia/vatsal-khandelwal-pessimistic-belief-correction-and-its-impact-well-being" target="_blank">Ideas of India &mdash; Mercatus Centre podcast</a></p>
         </li>
 
         <li>
-          <p class="paper-title">&ldquo;Personalized Teacher Attention and Student Achievement&rdquo;</p>
+          <p class="paper-title">Personalized Teacher Attention and Student Achievement</p>
           <p class="paper-meta">with Minahil Asim and Ronak Jain &mdash; <em>Funded by JPAL Post Primary Education Grant and RISE</em></p>
           <div class="paper-actions">
             <a href="https://vatsalecon.github.io/Papers/teacher_attention.pdf" target="_blank">Draft</a>
             <a href="https://www.povertyactionlab.org/initiative-project/pygmalion-effect-education-networks-evidence-public-schools-pakistan" target="_blank">JPAL project page</a>
             <details class="abstract-details">
-              <summary>Abstract</summary> 
+              <summary>Abstract</summary>
               <div class="abstract-text">We study how personalized teacher attention affects student achievement by randomizing whether students receive messages on behalf of their teacher containing either information on past performance, information with teacher-set performance expectations, additional peer pairing for encouragement, or no message. We find that messages containing information or expectations improve math achievement by 0.18&ndash;0.21&sigma;, with students interpreting both as signals of teacher attention. Effects are largest among low-performing students and those randomized to receive more ambitious expectations. Peer pairing only improves outcomes when students are similar. Our findings show that signaling teacher attention is a cost-effective input in the education production function.</div>
             </details>
           </div>
@@ -337,7 +119,7 @@
         </li>
 
         <li>
-          <p class="paper-title">&ldquo;Spatial Inequality and Informality in Kenya&rsquo;s Firm Network&rdquo;</p>
+          <p class="paper-title">Spatial Inequality and Informality in Kenya’s Firm Network</p>
           <p class="paper-meta">with Verena Wiedemann, Peter Wankuru Chacha, and Benard Kipyegon Kirui</p>
           <div class="paper-actions">
             <a href="https://verena-wiedemann.github.io/files/WKKC_Spatial_Inequality_Informality.pdf" target="_blank">Draft</a>
@@ -350,7 +132,7 @@
         </li>
 
         <li>
-          <p class="paper-title">&ldquo;Peer Effects in Social Networks: Evidence from an Entrepreneurship Experiment&rdquo;</p>
+          <p class="paper-title">Peer Effects in Social Networks: Evidence from an Entrepreneurship Experiment</p>
           <p class="paper-meta">with Juni Singh</p>
           <div class="paper-actions">
             <a href="https://vatsalecon.github.io/Papers/peer_effects.pdf" target="_blank">Draft</a>
@@ -362,12 +144,12 @@
         </li>
 
         <li>
-          <p class="paper-title">&ldquo;Caring Until It Costs: Teacher Responses to Student Mental Well-being&rdquo;</p>
+          <p class="paper-title">Caring Until It Costs: Teacher Responses to Student Mental Well-being</p>
           <p class="paper-meta">with Minahil Asim and Preetham Rodrigues &mdash; <em>Draft available upon request</em></p>
           <div class="paper-actions">
             <details class="abstract-details">
               <summary>Abstract</summary>
-              <div class="abstract-text">How do teachers balance academic performance and student mental well-being? We implement survey experiments with public school teachers to measure teacher preferences when academic performance and student well-being are in conflict. We document a gap between teachers&rsquo; stated and revealed priorities: while teachers overwhelmingly report valuing student well-being, they are significantly less likely to support it when it requires sacrificing academic outcomes. Using vignettes with randomized student attributes, we find that teachers report lower self-efficacy in supporting students with larger social networks. We then study a government-mandated training program and find that while it reduces teacher sensitivity to academic costs and improves attitudes toward well-being, it makes them less willing to support peer interactions and does not increase their self-efficacy.</div>
+              <div class="abstract-text">How do teachers balance academic performance and student mental well-being? We implement survey experiments with public school teachers to measure teacher preferences when academic performance and student well-being are in conflict. We document a gap between teachers’ stated and revealed priorities: while teachers overwhelmingly report valuing student well-being, they are significantly less likely to support it when it requires sacrificing academic outcomes. Using vignettes with randomized student attributes, we find that teachers report lower self-efficacy in supporting students with larger social networks. We then study a government-mandated training program and find that while it reduces teacher sensitivity to academic costs and improves attitudes toward well-being, it makes them less willing to support peer interactions and does not increase their self-efficacy.</div>
             </details>
           </div>
         </li>
@@ -375,56 +157,51 @@
       </ul>
     </div>
 
-    <!-- PUBLICATIONS -->
     <div id="publications" class="section-block">
       <h2 class="section-heading">Publications</h2>
       <hr class="section-rule">
       <ul class="paper-list">
-
         <li>
-          <p class="paper-title">&ldquo;Learning in Networks with Idiosyncratic Agents&rdquo;</p>
+          <p class="paper-title">Learning in Networks with Idiosyncratic Agents</p>
           <p class="paper-meta"><span class="venue">Games and Economic Behaviour</span>, 2024</p>
           <div class="paper-actions">
             <a href="https://www.sciencedirect.com/science/article/pii/S0899825624000125" target="_blank">Published version</a>
             <details class="abstract-details">
               <summary>Abstract</summary>
-              <div class="abstract-text">Individuals update their beliefs and respond to new information in idiosyncratic ways. I show that an individual&rsquo;s idiosyncrasies such as under-reaction, over-reaction, or frustration can have spillover effects and adversely affect the long run beliefs of society. I derive sufficient conditions for convergence of beliefs for all possible networks of agents with heterogeneous idiosyncrasies. Beliefs converge if the magnitude of over-reaction and frustration in any agent&rsquo;s network neighbourhood is below a threshold determined by how much they trust their own private signals. I find that the absence of disproportionately influential agents is not sufficient to ensure the accuracy of long-run beliefs if learning idiosyncrasies also grow with the network. Finally, I show that agent under-reaction can partition the network, create bottlenecks, and delay convergence.</div>
+              <div class="abstract-text">Individuals update their beliefs and respond to new information in idiosyncratic ways. I show that an individual’s idiosyncrasies such as under-reaction, over-reaction, or frustration can have spillover effects and adversely affect the long run beliefs of society. I derive sufficient conditions for convergence of beliefs for all possible networks of agents with heterogeneous idiosyncrasies. Beliefs converge if the magnitude of over-reaction and frustration in any agent’s network neighbourhood is below a threshold determined by how much they trust their own private signals. I find that the absence of disproportionately influential agents is not sufficient to ensure the accuracy of long-run beliefs if learning idiosyncrasies also grow with the network. Finally, I show that agent under-reaction can partition the network, create bottlenecks, and delay convergence.</div>
             </details>
           </div>
         </li>
-
       </ul>
     </div>
 
-    <!-- WORK IN PROGRESS -->
     <div id="work-in-progress" class="section-block">
       <h2 class="section-heading">Selected Work in Progress</h2>
       <hr class="section-rule">
       <ul class="paper-list">
         <li>
-          <p class="paper-title">&ldquo;Parental Involvement in Education and Children&rsquo;s Human Capital Formation&rdquo;</p>
+          <p class="paper-title">Parental Involvement in Education and Children’s Human Capital Formation</p>
           <p class="paper-meta">with Sonya Krutikova, Abu Siddique, Michael Vlassopoulos, and Yves Zenou &mdash; <em>Fieldwork completed</em></p>
         </li>
         <li>
-          <p class="paper-title">&ldquo;Social Learning through Meal Sharing&rdquo;</p>
+          <p class="paper-title">Social Learning through Meal Sharing</p>
           <p class="paper-meta">with Juni Singh &mdash; <em>Fieldwork completed</em></p>
         </li>
         <li>
-          <p class="paper-title">&ldquo;Social Connections among the Elderly&rdquo;</p>
+          <p class="paper-title">Social Connections among the Elderly</p>
           <p class="paper-meta">with Alison Andrew, Anandi Mani, and Sanchari Roy &mdash; <em>Fieldwork ongoing</em></p>
         </li>
         <li>
-          <p class="paper-title">&ldquo;Social Networks, Mental Health, and Domestic Violence&rdquo;</p>
+          <p class="paper-title">Social Networks, Mental Health, and Domestic Violence</p>
           <p class="paper-meta">with Sonia Bhalotra and Manuela Angelucci</p>
         </li>
         <li>
-          <p class="paper-title">&ldquo;Mask Up! How Social Networks Affect Adoption of Public Health Behaviours and Norms&rdquo;</p>
+          <p class="paper-title">Mask Up! How Social Networks Affect Adoption of Public Health Behaviours and Norms</p>
           <p class="paper-meta">with Dennis Egger, Aleksandra Jakubowski, and Michael Walker</p>
         </li>
       </ul>
     </div>
 
-    <!-- TEACHING -->
     <div id="teaching" class="section-block">
       <h2 class="section-heading">Teaching</h2>
       <hr class="section-rule">
@@ -440,7 +217,6 @@
       </div>
     </div>
 
-    <!-- MUSIC -->
     <div id="music" class="section-block">
       <h2 class="section-heading">Music</h2>
       <hr class="section-rule">
@@ -450,10 +226,8 @@
   </main>
 
   <script>
-    // Highlight active sidebar link on scroll
     const sections = document.querySelectorAll('main [id]');
     const navLinks = document.querySelectorAll('#sidebar-nav a');
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -463,7 +237,6 @@
         }
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
-
     sections.forEach(s => observer.observe(s));
   </script>
 
