@@ -174,15 +174,17 @@
       color: #333;
     }
 
-   .paper-actions {
-  display: block;
+  .paper-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
   font-size: 13px;
   margin-bottom: 4px;
 }
 .paper-actions a {
   color: #444;
   text-decoration: underline;
-  margin-right: 10px;
 }
 .paper-actions a:hover { color: #111; }
 
@@ -195,8 +197,8 @@
       display: inline;
     }
 
-    details.abstract-details {
-  display: block;
+   details.abstract-details {
+  display: inline;
   width: 100%;
 }
     details.abstract-details summary::-webkit-details-marker { display: none; }
