@@ -76,6 +76,23 @@
       margin-bottom: 20px;
     }
 
+    hr.sidebar-rule {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin-bottom: 16px;
+    }
+
+    nav a {
+      display: block;
+      font-size: 13px;
+      color: #444;
+      text-decoration: none;
+      padding: 3px 0;
+      transition: color 0.15s;
+    }
+
+    nav a:hover { color: #111; }
+    nav a.active { color: #111; font-weight: 500; }
 
     /* MAIN CONTENT */
     main {
@@ -250,13 +267,44 @@
         height: auto;
         border-right: none;
         border-bottom: 1px solid #e8e8e8;
-        padding: 24px 20px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 16px;
-        align-items: flex-start;
+        padding: 28px 24px 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center !important;
       }
-      main { margin-left: 0; padding: 28px 20px 60px; }
+      header, header * { text-align: center !important; }
+      header img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 14px;
+      }
+      header h1 {
+        font-size: 20px;
+        margin-bottom: 4px;
+      }
+      header .position {
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+      hr.sidebar-rule {
+        width: 60px;
+        margin: 0 auto 12px;
+      }
+      header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 16px;
+      }
+      header nav a { display: inline; font-size: 13px; }
+      main {
+        margin-left: 0;
+        padding: 28px 20px 60px;
+        max-width: 100%;
+      }
+      .abstract-text {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -267,6 +315,15 @@
     <img src="photo.jpg" alt="Vatsal Khandelwal">
     <h1>Vatsal Khandelwal</h1>
     <p class="position">Assistant Professor (Lecturer) in Economics, University of Exeter. Academic Visitor, University of Oxford.</p>
+    <hr class="sidebar-rule">
+    <nav id="sidebar-nav">
+      <a href="#bio">Bio</a>
+      <a href="#working-papers">Working Papers</a>
+      <a href="#publications">Publications</a>
+      <a href="#work-in-progress">Work in Progress</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#music">Music</a>
+    </nav>
   </header>
 
   <!-- MAIN -->
@@ -420,6 +477,23 @@
 
   </main>
 
+  <script>
+    // Highlight active sidebar link on scroll
+    const sections = document.querySelectorAll('main [id]');
+    const navLinks = document.querySelectorAll('#sidebar-nav a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`#sidebar-nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
 
 </body>
 </html>
