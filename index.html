@@ -128,6 +128,33 @@
 
     .bio-links a { text-decoration: underline; }
 
+    /* Add this to header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 210px;
+  height: 100vh;
+  padding: 36px 24px 36px 28px;
+  border-right: 1px solid #e8e8e8;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Add these back — they were in your original CSS but got removed */
+details.abstract-details summary {
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+  list-style: none;
+  text-decoration: underline;
+  display: inline;
+}
+details.abstract-details summary::-webkit-details-marker { display: none; }
+details.abstract-details summary::marker { display: none; }
+    
     /* SECTION HEADINGS */
     h2.section-heading {
       font-size: 15px;
@@ -262,7 +289,7 @@ details.abstract-details .abstract-text {
   <header>
 <img src="photo.jpg" alt="Vatsal Khandelwal" style="width:140px;height:140px;object-fit:cover;border-radius:3px;">
     <h1>Vatsal Khandelwal</h1>
-    <p class="position">Assistant Professor (Lecturer) in Economics<br>University of Exeter<br>Academic Visitor, Oxford</p>
+    <p class="position">Assistant Professor (Lecturer) in Economics<br>University of Exeter<br>Academic Visitor, University of Oxford</p>
     <hr class="sidebar-rule">
     <nav id="sidebar-nav">
       <a href="#bio">Bio</a>
