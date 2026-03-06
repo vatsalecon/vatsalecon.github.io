@@ -130,8 +130,8 @@
       margin-top: 16px;
     }
 
-    .bio-links a { text-decoration: underline; }
-    .bio-links a.cv-link { color: #2c5282; font-size: 15px; font-weight: 600; }
+    .bio-links a { text-decoration: underline; font-size: 15px; font-weight: 600; }
+    .bio-links a.cv-link { color: #2c5282; }
     .bio-links a.cv-link:hover { color: #1a3a5c; }
 
     .abstract-toggle {
@@ -140,14 +140,14 @@
       cursor: pointer;
       text-decoration: underline;
     }
-    .abstract-toggle::after {
-      content: ' ▾';
-      font-size: 10px;
+    .abstract-toggle::before {
+      content: '▸ ';
+      font-size: 11px;
       text-decoration: none;
-      display: inline-block;
+      display: inline;
     }
-    .abstract-toggle.open::after {
-      content: ' ▴';
+    .abstract-toggle.open::before {
+      content: '▾ ';
     }
     .abstract-toggle:hover { color: #1a3a5c; }
 
